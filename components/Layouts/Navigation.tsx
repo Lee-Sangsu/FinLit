@@ -9,7 +9,7 @@ export const Navigation: NextPage = ( ) => {
         <header>
             <nav className={styles.nav}>
                 <Link className={styles.home_nav} href="/">
-                    <span className={styles.span}>it's</span>
+                    <span className={styles.span}>{`it's`}</span>
                     <Image src={"/images/fine-logo.png"} alt="Go to index page" placeholder="empty" width={60} height={42} />
                 </Link>
                 <div className={styles.ndiv}>
