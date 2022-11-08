@@ -1,9 +1,34 @@
+:root {
+  --light-bg: #FFEEE9;
+  --light-color: #000000; 
+
+  --dark-bg: #000009;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Ubuntu-Regular.ttf"), format('truetype-variations');
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+  max-width: 430px;
+  max-height: 944px;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  overflow-x: hidden;
+  color: var(--light-color);
+  background: var(--light-bg);
 }
 
 a {
@@ -20,7 +45,7 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    color: var(--light-bg);
+    background: var(--dark-bg);
   }
 }

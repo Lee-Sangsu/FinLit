@@ -1,0 +1,17 @@
+[{
+    "name": "SS lee",
+    "age": 19,
+    "profile-img": "ididid",
+    "language": ["kor", "eng"],
+    "postal-code": 13355,
+    "preferred-work-loc": ["offline", "online"],
+    "offerable-works, work idea db id": [1, 2]
+},{
+    "name": "Teboho Msiza",
+    "age": 19,
+    "profile-img": "ididid",
+    "language": ["kor", "eng"],
+    "postal-code": 13355,
+    "preferred-work-loc": ["offline", "online"],
+    "offerable-works, work idea db id": [1, 2]
+}]
