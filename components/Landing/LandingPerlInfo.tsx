@@ -8,13 +8,15 @@ export default function LandingPerInfo ({nextLandingIndex, styles}: any) {
         keyExpenditure: []
     });
 
-    const inputPersonalInfo = (event: React.FormEvent<HTMLInputElement>) => {
+    const inputPersonalInfo = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.currentTarget.name === "name") {
             setPersonalInfo({...personalInfo,
                 name: event.currentTarget.value
             })
-        } else if (event.currentTarget.name === "") {
-
+        } else if (event.currentTarget.name === "incomesource") {
+            setPersonalInfo({ ...personalInfo,
+                incomesource: event.currentTarget.value
+            })
         }
     }
 
@@ -24,9 +26,12 @@ export default function LandingPerInfo ({nextLandingIndex, styles}: any) {
             <p className={styles.description}>We’ll follow simple steps to figure out how much money you need.</p>
         </div>
 
-        <form className={styles.info_form}> {/* 8px margin-top */}
-            <input className={styles.input} type="text" name="name" onChange={inputPersonalInfo} />
-
+        <form> {/* 8px margin-top */}
+            <section className={styles.info_form}>
+                <input className={styles.input} type="text" name="name" onChange={inputPersonalInfo} placeholder="full name" maxLength={20} />
+                <label className={styles.label}>Enter your name</label> 
+                <label className={styles.label}>{`${personalInfo.name.length} / 20`}</label>
+            </section>
         </form>
 
         <div className={styles.next_landing_btn}>

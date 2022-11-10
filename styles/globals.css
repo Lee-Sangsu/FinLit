@@ -1,8 +1,12 @@
 :root {
-  --light-bg: #FFEEE9;
-  --light-color: #000000; 
+  --light-bg: #F2F9FB;
+  --light-color: #151B28; 
+
+  --primary-color: #3E4D6B;
+  --neutral-color: #619492;
 
   --dark-bg: #000009;
+  --dark-color: #FFEEE9;
 }
 
 @font-face {
