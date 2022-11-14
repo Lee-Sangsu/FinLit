@@ -1,26 +1,32 @@
 :root {
   --light-bg: #F2F9FB;
   --light-color: #151B28; 
-
   --primary-color: #3E4D6B;
   --neutral-color: #619492;
-
-  --dark-bg: #000009;
-  --dark-color: #FFEEE9;
+  --dark-bg: #151B28;
+  --dark-color: #F2F9FB;
 }
 
 @font-face {
   font-family: 'Ubuntu';
   font-style: normal;
   font-weight: 400;
-  src: url("/fonts/Ubuntu-Regular.ttf"), format('truetype-variations');
+  src: url("/fonts/Ubuntu-Regular.ttf");
+  letter-spacing: 0.2px;
+}
+
+@font-face {
+  font-family: 'Ubuntu Medium';
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/Ubuntu-Medium.ttf");
+  letter-spacing: 0.2px;
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Ubuntu', sans-serif;
   max-width: 430px;
   max-height: 944px;
 }
@@ -35,6 +41,35 @@ body {
   background: var(--light-bg);
 }
 
+h1, h2, h3, h4 {
+  font-family: 'Ubuntu Medium';
+}
+
+h2 {
+  font-style: normal;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 125%;
+  margin-block: 0;
+}
+
+p, button {
+  font-family: 'Ubuntu';
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 125%;
+  margin-block: 0;
+}
+
+p {
+  font-size: 14px;
+  line-height: 125%;
+  margin-block: 0;
+}
 a {
   color: inherit;
   text-decoration: none;

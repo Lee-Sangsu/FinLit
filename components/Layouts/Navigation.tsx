@@ -9,16 +9,15 @@ export const Navigation: NextPage = ( ) => {
         <header>
             <nav className={styles.nav}>
                 <Link className={styles.home_nav} href="/">
-                    <span className={styles.span}>{`it's`}</span>
-                    <Image src={"/images/fine-logo.png"} alt="Go to index page" placeholder="empty" width={60} height={42} />
+                    <Image src={"/images/finefish-logo.svg"} alt="Go to index page" placeholder="empty" width={67.51} height={56} />
                 </Link>
                 <div className={styles.ndiv}>
                     <a className={styles.a}>
-                        <Image src="/static/images/account.svg" alt="My account" width={22} height={23.1} />
+                        <Image src="/images/account.svg" alt="My account" width={24} height={25.26} />
                     </a>
                     <button className={styles.button} onClick={() => console.log("Expand Menu list")}>
                         <a className={styles.a}>
-                            <Image src={"/static/images/hamburger-btn.svg"} alt="Shopping Bag" width={24} height={20.35} />
+                            <Image src={"/images/hamburger-btn.svg"} alt="Expand menu list" width={24} height={20.35} />
                         </a>
                     </button>
                 </div>

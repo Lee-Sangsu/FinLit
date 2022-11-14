@@ -11,7 +11,7 @@ const SEO: NextPage<Props> = ({title, description}) => {
         <title>{title}</title>
         <meta name='description' content={description} />
         <meta name="theme-color" content="var(--light-bg)" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/finefish-ico.png" />
     </Head>
 }
 
