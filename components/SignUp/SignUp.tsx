@@ -1,10 +1,37 @@
 import React from 'react';
-import LandingIndex from '../Landing'
-import WelcomePage from './WelcomePage';
 import styles from '../../styles/SignUp.module.css';
 import { BasicInfoInput } from './BasicInfo';
 
 export default function SignUp ({personalInfo, setPersonalInfo, nextLandingIndex}: any) {
+  React.useEffect(() => {
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+    
+    async function success(pos:any) {
+      const crd = pos.coords;
+      const countryApiURL = `https://www.latlong.net/c/?lat=${crd.latitude}&long=${crd.longitude}`;
+      const countryInfo = await fetch(countryApiURL, {
+        headers: {
+          'Access-Control-Allow-Origin': "*"
+        }
+      });
+
+      console.log(countryInfo);
+      // console.log(`Latitude : ${crd.latitude}`);
+      // console.log(`Longitude: ${crd.longitude}`);
+      // console.log(`More or less ${crd.accuracy} meters.`);
+    }
+    
+    function error(err:any) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    };
+    
+    navigator.geolocation.getCurrentPosition(success, error, options);
+  }, [])
+
   const inputPersonalInfo = (event: React.ChangeEvent<HTMLInputElement>) => {
       if (event.currentTarget.name === "name") {
           setPersonalInfo({...personalInfo,
