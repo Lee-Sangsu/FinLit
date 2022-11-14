@@ -2,6 +2,7 @@ import React from 'react';
 import LandingIndex from '../Landing'
 import WelcomePage from './WelcomePage';
 import styles from '../../styles/SignUp.module.css';
+import { BasicInfoInput } from './BasicInfo';
 
 export default function SignUp ({personalInfo, setPersonalInfo, nextLandingIndex}: any) {
   const inputPersonalInfo = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -9,11 +10,15 @@ export default function SignUp ({personalInfo, setPersonalInfo, nextLandingIndex
           setPersonalInfo({...personalInfo,
               name: event.currentTarget.value
           })
-      } else if (event.currentTarget.name === "incomesource") {
+      } else if (event.currentTarget.name === "email") {
           setPersonalInfo({ ...personalInfo,
-              incomesource: event.currentTarget.value
+              email: event.currentTarget.value
           })
-      }
+      } else if (event.currentTarget.name === "age") {
+          setPersonalInfo({ ...personalInfo,
+            age: event.currentTarget.value
+          })
+    }
   };
 
   return (<>
@@ -22,11 +27,7 @@ export default function SignUp ({personalInfo, setPersonalInfo, nextLandingIndex
         {/* {landingIndex === 0 ? <WelcomePage nextLandingIndex={nextLandingIndex} styles={styles} />
         : <WelcomePage nextLandingIndex={nextLandingIndex} styles={styles} />} */}
         <form> {/* 8px margin-top */}
-            <section className={styles.info_form}>
-                <input className={styles.input} type="text" name="name" onChange={inputPersonalInfo} placeholder="First name" autoComplete='given-name' maxLength={20} />
-                <label className={styles.label}>Enter your name</label> 
-                <label className={styles.label}>{`${personalInfo.name.length} / 20`}</label>
-            </section>
+            <BasicInfoInput styles={styles} personalInfo={personalInfo} inputPersonalInfo={inputPersonalInfo} />
         </form>
 
         <div className={styles.next_landing_btn}>

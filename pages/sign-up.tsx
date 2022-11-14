@@ -2,14 +2,24 @@ import { getUser } from '@notionhq/client/build/src/api-endpoints';
 import React from 'react';
 import SignUp from '../components/SignUp/SignUp';
 import styles from '../styles/Home.module.css';
+import { addUser } from '../utilities/firebaseProvider';
 import { createUser, getUsers } from '../utilities/notionProvider';
-import handler from './api/hello';
+
+interface basicInfo {
+    name: string,
+    email: string,
+    age: number | undefined,
+    location: Array<string>,
+    interests: Array<string>
+}
 
 export default function SignUpPage () {
-  const [personalInfo, setPersonalInfo] = React.useState({
+  const [personalInfo, setPersonalInfo] = React.useState<basicInfo>({
     name: "",
-    incomesource: "",
-    keyExpenditure: []
+    email: "",
+    age: undefined,
+    location: [],
+    interests: []
   });
 
   const [landingIndex, setLandingIndex] = React.useState(0);
@@ -18,7 +28,7 @@ export default function SignUpPage () {
     event.preventDefault();
 
     // createUser('sangsoo', 'sangsu.lee@alumni.mondragon.edu');
-    getUsers();
+    addUser("sangsoo", "sangsu.lee@alumni.mondragon.edu");
     if (event.currentTarget.name === "0-next") {
       setLandingIndex(1);
     } else if (event.currentTarget.name === "1-next") {
