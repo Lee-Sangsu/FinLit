@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import React from 'react';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import { userInfoState } from '../../states/userInfo';
 import styles from '../../styles/SignUp.module.css';
 import { shuffledHobbies } from '../../utilities/hobbiesList';
 import { BasicInfoInput } from './PersonalInfo';
 
 export default function InterestsInput ({personalInfo, setPersonalInfo, nextLandingIndex}: any) {
-    const setUserInfoGlobal = useSetRecoilState(userInfoState);
+    const [userInfoGlobal, setUserInfoGlobal] = useRecoilState(userInfoState);
 
    const [hobbiesList, setHobbiesList] = React.useState<string[]>([]);
    React.useEffect(() => {
@@ -57,11 +57,10 @@ export default function InterestsInput ({personalInfo, setPersonalInfo, nextLand
    };
 
    const saveInfo = () => {
-    setPersonalInfo({...personalInfo,
+    setUserInfoGlobal(personalInfo);
+    setUserInfoGlobal({...personalInfo,
         interests: selectedHobbies
     });
-
-    setUserInfoGlobal(personalInfo);
    };
 
   return (<>

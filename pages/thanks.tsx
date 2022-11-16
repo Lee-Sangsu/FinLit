@@ -11,6 +11,7 @@ export default function Thanks () {
 
     const saveInfo = ( ) => {
         addUser(userInfo);
+        console.log(userInfo)
         setTimeout(() => {
             setGoback(true);
         }, 600)
