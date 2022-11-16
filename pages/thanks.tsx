@@ -30,7 +30,7 @@ export default function Thanks () {
             <h4 style={{
                 marginBottom: 56,
                 textAlign: 'center' 
-            }}>"Do you want to share your information to offer better information?"</h4> 
+            }}>{"Do you want to share your information to offer better information?"}</h4> 
             <button onClick={saveInfo} name="0-next" className={styles.finbutton}>{`Yes`}</button>
             <p className={styles.description} >{`If not, you can close this website. It won't save your information.`}</p>
         </div></>
