@@ -72,7 +72,9 @@ export default function InterestsInput ({personalInfo, setPersonalInfo, nextLand
             {hobbiesList.map((value, index) => <li onClick={addHobby} className={styles.hobby} key={index}>{value}</li>)}
         </ul>
 
-        <Link href="/thanks" className={styles.next_landing_btn}>
+        <Link style={{
+            marginTop: '24px'
+        }} href="/thanks" className={styles.next_landing_btn}>
           <button name="1-next" onClick={saveInfo} className={styles.button}>{`Continue ${selectedHobbies.length}/5`}</button>
         </Link>
       </main>
