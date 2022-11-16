@@ -53,7 +53,7 @@ h2 {
   margin-block: 0;
 }
 
-p, button, label {
+p, button, label, li {
   font-family: 'Ubuntu';
   font-weight: 400;
 }

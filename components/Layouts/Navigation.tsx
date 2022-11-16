@@ -3,9 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from 'styles/Navigation.module.css';
 import { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import { darkModeState } from "../../states/darkMode";
 
 export const Navigation: NextPage = ( ) => {
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useRecoilState(darkModeState);
 
     const modeMe = (e:any) => {
         setDarkMode(!!e.matches);

@@ -22,18 +22,11 @@ export const firebaseApp = initializeApp(firebaseConfig);
 export const db = getFirestore(firebaseApp);
 // const analytics = getAnalytics(firebaseApp);
 
-export async function addUser(username:string, email:string) {
+export async function addUser(data: any) {
     try {
-        if (username !== null && email !== null) {
-            const docRef = await addDoc(collection(db, "users"), {
-              name: username,
-              uid: "Lovelace",
-              email: email
-            });
-            console.log("Document written with ID: ", docRef.id);
-        } else {
-            window.alert("Please check if you typed name and email.")
-        }
+        const docRef = await addDoc(collection(db, "users"), data);
+        window.alert("Data is successfully saved!")
+        console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
     }

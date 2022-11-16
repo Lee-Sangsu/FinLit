@@ -1,5 +1,6 @@
 import { getUser } from '@notionhq/client/build/src/api-endpoints';
 import React from 'react';
+import InterestsInput from '../components/SignUp/Interests';
 import SignUp from '../components/SignUp/SignUp';
 import styles from '../styles/Home.module.css';
 import { addUser } from '../utilities/firebaseProvider';
@@ -9,7 +10,7 @@ interface basicInfo {
     name: string,
     email: string,
     age: number | undefined,
-    location: Array<string>,
+    location: string,
     interests: Array<string>
 }
 
@@ -18,25 +19,28 @@ export default function SignUpPage () {
     name: "",
     email: "",
     age: undefined,
-    location: [],
+    location: "",
     interests: []
   });
 
-  const [landingIndex, setLandingIndex] = React.useState(0);
+  const [basicInfoPage, setBasicInfoPage] = React.useState(true);
 
   const nextLandingIndex = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    // createUser('sangsoo', 'sangsu.lee@alumni.mondragon.edu');
-    addUser("sangsoo", "sangsu.lee@alumni.mondragon.edu");
+    // // createUser('sangsoo', 'sangsu.lee@alumni.mondragon.edu');
+    // addUser("sangsoo", "sangsu.lee@alumni.mondragon.edu");
     if (event.currentTarget.name === "0-next") {
-      setLandingIndex(1);
+      setBasicInfoPage(false);
     } else if (event.currentTarget.name === "1-next") {
-      setLandingIndex(2);
+    //   Firebase
     }
   };
 
   return (<>
-      <SignUp personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} nextLandingIndex={nextLandingIndex}  />
+     {basicInfoPage ? 
+      <SignUp personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} nextLandingIndex={nextLandingIndex}  />:
+      <InterestsInput personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} nextLandingIndex={nextLandingIndex} />
+     }
     </>)
 };

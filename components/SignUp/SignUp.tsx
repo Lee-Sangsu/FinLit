@@ -1,14 +1,9 @@
 import React from 'react';
 import styles from '../../styles/SignUp.module.css';
-import { BasicInfoInput } from './BasicInfo';
+import { BasicInfoInput, FinLevelInput } from './PersonalInfo';
 
 export default function SignUp ({personalInfo, setPersonalInfo, nextLandingIndex}: any) {
   React.useEffect(() => {
-    const options = {
-      enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 0
-    };
     
     async function success(pos:any) {
       const crd = pos.coords;
@@ -18,34 +13,39 @@ export default function SignUp ({personalInfo, setPersonalInfo, nextLandingIndex
           'Access-Control-Allow-Origin': "*"
         }
       });
-
-      console.log(countryInfo);
-      // console.log(`Latitude : ${crd.latitude}`);
-      // console.log(`Longitude: ${crd.longitude}`);
-      // console.log(`More or less ${crd.accuracy} meters.`);
-    }
-    
-    function error(err:any) {
-      console.warn(`ERROR(${err.code}): ${err.message}`);
     };
     
-    navigator.geolocation.getCurrentPosition(success, error, options);
   }, [])
-
+  
   const inputPersonalInfo = (event: React.ChangeEvent<HTMLInputElement>) => {
-      if (event.currentTarget.name === "name") {
-          setPersonalInfo({...personalInfo,
-              name: event.currentTarget.value
-          })
-      } else if (event.currentTarget.name === "email") {
+    if (event.currentTarget.name === "name") {
+      setPersonalInfo({...personalInfo,
+        name: event.currentTarget.value
+      })
+    } else if (event.currentTarget.name === "email") {
           setPersonalInfo({ ...personalInfo,
               email: event.currentTarget.value
           })
-      } else if (event.currentTarget.name === "age") {
+        } else if (event.currentTarget.name === "age") {
           setPersonalInfo({ ...personalInfo,
             age: event.currentTarget.value
           })
-    }
+        } else if (event.currentTarget.name === "location") {
+          setPersonalInfo({ ...personalInfo,
+            location: event.currentTarget.value
+          })
+          
+          // navigator.geolocation.getCurrentPosition( (pos:any) => {
+          //   setPersonalInfo({ ...personalInfo,
+          //     location: `${pos.coords.latitude}, ${pos.coords.longitude}`
+          //   })
+          // },
+          // (error:any) => console.warn(error), {
+          //   enableHighAccuracy: true,
+          //   timeout: 5000,
+          //   maximumAge: 0
+          // });
+      } 
   };
 
   return (<>
@@ -54,11 +54,11 @@ export default function SignUp ({personalInfo, setPersonalInfo, nextLandingIndex
         {/* {landingIndex === 0 ? <WelcomePage nextLandingIndex={nextLandingIndex} styles={styles} />
         : <WelcomePage nextLandingIndex={nextLandingIndex} styles={styles} />} */}
         <form> {/* 8px margin-top */}
-            <BasicInfoInput styles={styles} personalInfo={personalInfo} inputPersonalInfo={inputPersonalInfo} />
+            <FinLevelInput styles={styles} personalInfo={personalInfo} inputPersonalInfo={inputPersonalInfo} />
         </form>
 
         <div className={styles.next_landing_btn}>
-          <button onClick={nextLandingIndex} className={styles.button}>{`Continue`}</button>
+          <button onClick={nextLandingIndex} name="0-next" className={styles.button}>{`Continue`}</button>
         </div>
       </main>
     </>)
