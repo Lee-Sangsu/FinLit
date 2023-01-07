@@ -6,7 +6,7 @@ import { Footer } from '../components/Layouts/Footer';
 import WelcomePage from '../components/SignUp/WelcomePage';
 import styles from '../styles/Home.module.css';
 import { getCookie, setCookie } from '../utilities/cookieProvider';
-
+import { cookies } from 'next/headers';
 
 export default function Home() {
   const [landing, setLanding] = React.useState(true);
