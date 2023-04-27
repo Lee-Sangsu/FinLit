@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { addPage } from '../../utilities/firebaseProvider'
 
 export default function WelcomePage ({nextLandingIndex, styles}: any) {
 
@@ -29,7 +30,7 @@ export default function WelcomePage ({nextLandingIndex, styles}: any) {
         </div>
 
         <Link href="/sign-up" className={styles.next_landing_btn}>
-          <button className={styles.button}>{`Start your journey`}</button>
+          <button onClick={() => addPage(0)} className={styles.button}>{`Start your journey`}</button>
         </Link>
     </main>)
 };

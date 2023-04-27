@@ -3,7 +3,7 @@ import React from 'react';
 import InterestsInput from '../components/SignUp/Interests';
 import SignUp from '../components/SignUp/SignUp';
 import styles from '../styles/Home.module.css';
-import { addUser } from '../utilities/firebaseProvider';
+import { addPage } from '../utilities/firebaseProvider';
 import { createUser, getUsers } from '../utilities/notionProvider';
 
 interface basicInfo {
@@ -31,8 +31,10 @@ export default function SignUpPage () {
     // // createUser('sangsoo', 'sangsu.lee@alumni.mondragon.edu');
     // addUser("sangsoo", "sangsu.lee@alumni.mondragon.edu");
     if (event.currentTarget.name === "0-next") {
+      addPage(1);
       setBasicInfoPage(false);
     } else if (event.currentTarget.name === "1-next") {
+        addPage(2);
     //   Firebase
     }
   };

@@ -31,3 +31,12 @@ export async function addUser(data: any) {
       console.error("Error adding document: ", e);
     }
 };
+
+export async function addPage(data: any) {
+    try {
+        const docRef = await addDoc(collection(db, "page-check"), data);
+        console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+};

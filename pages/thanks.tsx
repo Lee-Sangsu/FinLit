@@ -22,17 +22,17 @@ export default function Thanks () {
         {goback ? <>
         <Link href="/">Go back to Index Page</Link>
         </>:<>
-        <h2 className={styles.title}>{`Thanks for the information!`}</h2>
-        <p className={styles.description}>{`We are going to analyse the relevant opportunities and financial contents based on the information that you input.`}</p>
-
+        <h2 className={styles.title}>{`Thank you!`}</h2>
+        <h1 className={styles.findescription}>{`We think you are perfect match for our platform!`}</h1>
+        {/* <p className={styles.description}>{`We are going to analyse the relevant opportunities and financial contents based on the information that you input.`}</p> */}
 
         <div className={styles.finish}>
             <h4 style={{
-                marginBottom: 56,
+                marginBottom: 16,
                 textAlign: 'center' 
-            }}>{"Do you want to share your information to offer better information?"}</h4> 
-            <button onClick={saveInfo} name="0-next" className={styles.finbutton}>{`Yes`}</button>
-            <p className={styles.description} >{`If not, you can close this website. It won't save your information.`}</p>
+            }}>{"Click here to start the signup process and learn more about our offers."}</h4> 
+            <button onClick={saveInfo} name="0-next" className={styles.finbutton}>{`Proceed to Sign Up`}</button>
+            {/* <p className={styles.description} >{`If not, you can close this website. It won't save your information.`}</p> */}
         </div></>
         }
 

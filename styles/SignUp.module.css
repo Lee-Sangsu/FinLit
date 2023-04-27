@@ -134,10 +134,23 @@
 .finish {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-top: 56px;
   align-items: center;
   height:60vh;
+}
+
+.findescription {
+  margin-top: 4px;
+  display: flex;
+  justify-content: center;
+  word-wrap: normal;
+  line-height: 1.25;
+  letter-spacing: 0.2px;
+  text-align: center;
+  align-items: flex-end;
+  height: 40vh;
+  padding-bottom: 16px;
 }
 
 .finbutton {
