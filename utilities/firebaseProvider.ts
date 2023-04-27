@@ -25,7 +25,7 @@ export const db = getFirestore(firebaseApp);
 export async function addUser(data: any) {
     try {
         const docRef = await addDoc(collection(db, "users"), data);
-        window.alert("Data is successfully saved!")
+        window.alert("Our platform is still being developed. Check back again soon!")
         console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);

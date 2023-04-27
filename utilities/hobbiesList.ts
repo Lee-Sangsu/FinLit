@@ -31,11 +31,13 @@ export const educationalHobbies:string[] = [
     "literature",
     "mathematics",
     "philosophy",
-    "phychology",
+    "psychology",
     "research",
     "sociology",
     "web design",
-    "teching",
+    "tech",
+    "content creation"
+
 ];
 
 export const competitiveInDoorHobbies:string[] = [
@@ -49,11 +51,10 @@ export const competitiveInDoorHobbies:string[] = [
     "chess",
     "knowledge/word games",
     "poker",
-    "material arts",
+    "martial arts",
     "video gaming",
     "vr gaming",
-    "web design",
-    "teching",
+    "web design"
 ];
 
 export const competitiveOutDoorHobbies:string[] = [
